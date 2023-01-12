@@ -1,0 +1,7 @@
+* * * * * bash /root/job.sh
+
+
+nano /etc/ssh/sshd_config
+
+
+systemctl restart ssh
