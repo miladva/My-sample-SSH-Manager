@@ -1,7 +1,7 @@
-* * * * * bash /root/job.sh
+* * * * * bash /root/My-sample-SSH-Manager/job.sh
 
 
-nano /etc/ssh/My-sample-SSH-Manager/sshd_config
+nano /etc/ssh/sshd_config
 
 
 systemctl restart ssh
