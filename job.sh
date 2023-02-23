@@ -4,7 +4,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 while read line; do
-  if [[ `ps -u $line | grep sshd | wc -l` -ge 10 ]]
+  if [[ `ps -u $line | grep sshd | wc -l` -ge 15 ]]
   then
     PROCESSES=`ps -u $line | grep sshd | awk '{ print $1 }'`
     sudo killall -u $line
