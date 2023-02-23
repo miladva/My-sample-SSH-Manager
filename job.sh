@@ -16,6 +16,7 @@ while read line; do
   if [[ `ps -u $line | grep sshd | wc -l` -ge 6 ]]
   then
     PROCESSES=`ps -u $line | grep sshd | awk '{ print $1 }'`
+    echo "found user $line with process count: `ps -u $line | grep sshd | wc -l` -- pids: $PROCESSES" >> /root/dis.txt 
     kill -9 $PROCESSES
   fi
 
