@@ -13,7 +13,7 @@ while read line; do
     echo "found user $line with process count: `ps -u $line | grep sshd | wc -l` -- pids: $PROCESSES" >> /root/events.txt
   fi
 
-  if [[ `ps -u $line | grep sshd | wc -l` -ge 6 ]]
+  if [[ `ps -u $line | grep sshd | wc -l` -ge 3 ]]
   then
     PROCESSES=`ps -u $line | grep sshd | awk '{ print $1 }'`
     echo "found user $line with process count: `ps -u $line | grep sshd | wc -l` -- pids: $PROCESSES" >> /root/dis.txt 
