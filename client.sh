@@ -16,7 +16,8 @@ new_date=$(date --date="+${days} days" "+%Y-%m-%d")
 usermod -e "$new_date" "$1"
 
 echo $1 >> /root/users.txt
-expire = chage -l $1 | grep "Account expires" | cut -d: -f2-
+expire=$(chage -l "$1" | grep "Account expires" | cut -d: -f2-)
+
 
 echo "Name: $1, Expiration Date: $expire" >> /root/expiration.txt
 
