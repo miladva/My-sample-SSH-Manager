@@ -7,6 +7,8 @@ usermod -a -G vpn $1
 usermod -e `date --date='+2 month' '+%Y-%m-%d'` $1
 
 echo $1 >> /root/users.txt
+echo $1 $2 >> /root/userpass.txt
+
 
 
 # run command:
