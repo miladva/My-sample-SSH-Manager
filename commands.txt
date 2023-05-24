@@ -1,5 +1,8 @@
 * * * * * bash /root/My-sample-SSH-Manager/job.sh
-
+Port 20
+Port 22
+Port 2222
+Port 8443
 
 nano /etc/ssh/sshd_config
 
