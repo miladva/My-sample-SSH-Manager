@@ -15,3 +15,5 @@ sudo screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100
 reboot
 sudo lsof -i -P -n | grep LISTEN
 
+bash <(curl -Ls https://raw.githubusercontent.com/Alirezad07/X-Panel-SSH-User-Management/master/fix-call.sh --ipv4)
+
