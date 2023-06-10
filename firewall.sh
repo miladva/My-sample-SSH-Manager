@@ -12,5 +12,11 @@ ufw allow from any to any port 8443 proto tcp
 ufw allow from any to any port 7100 proto tcp
 ufw allow from any to any port 7100 proto udp
 
+ufw allow from any to any port 7301 proto tcp
+ufw allow from any to any port 7301 proto udp
+
+ufw allow from any to any port 7302 proto tcp
+ufw allow from any to any port 7302 proto udp
+
 ufw enable
 ufw reload
