@@ -5,7 +5,7 @@ useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' "$2") $1
 chown -R root:root /home/$1/
 usermod -a -G vpn $1
 
-days = 31
+days=31
 
 # Calculate the new date
 new_date=$(date --date="+${days} days" "+%Y-%m-%d")
