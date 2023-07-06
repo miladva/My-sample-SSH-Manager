@@ -3,7 +3,6 @@
 password=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 5 | head -n 1)
 
 file_path="/root/userpass.txt"
-new_date=$(date --date="+${days} days" "+%Y-%m-%d")
 
 
 if id "$1" >/dev/null 2>&1; then
@@ -20,6 +19,7 @@ chown -R root:root /home/$1/
 usermod -a -G vpn $1
 
 days=$2
+new_date=$(date --date="+${days} days" "+%Y-%m-%d")
 
 # Update user account with new date
 usermod -e "$new_date" "$1"
