@@ -17,3 +17,4 @@ sudo lsof -i -P -n | grep LISTEN
 
 bash <(curl -Ls https://raw.githubusercontent.com/Alirezad07/X-Panel-SSH-User-Management/master/fix-call.sh --ipv4)
 
+bash <(curl -Ls https://raw.githubusercontent.com/HamedAp/Ssh-User-management/master/ssh-calls.sh --ipv4)
