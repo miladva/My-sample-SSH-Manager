@@ -18,5 +18,5 @@ ufw allow from any to any port 7301 proto udp
 ufw allow from any to any port 7302 proto tcp
 ufw allow from any to any port 7302 proto udp
 
-ufw enable
+echo 'y' | ufw enable
 ufw reload
