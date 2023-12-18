@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Maximum number of SSH sessions.
-MAX_SESSIONS=10
+MAX_SESSIONS=6
 
 # Counting only unique SSH connections, not sessions.
 # This counts the number of unique IP addresses connected via SSH.
