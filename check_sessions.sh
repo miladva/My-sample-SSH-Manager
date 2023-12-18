@@ -6,3 +6,4 @@ if [ "$CURRENT_SESSIONS" -lt "$MAX_SESSIONS" ]; then
 else
     echo "Maximum number of SSH sessions reached."
     exit 1
+fi
