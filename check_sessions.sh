@@ -1,4 +1,4 @@
-MAX_SESSIONS=13
+MAX_SESSIONS=6
 CURRENT_SESSIONS=$(ps aux | grep sshd: | grep -v grep | wc -l)
 if [ "$CURRENT_SESSIONS" -lt "$MAX_SESSIONS" ]; then
     exec /bin/bash
