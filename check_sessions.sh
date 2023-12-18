@@ -1,21 +1,22 @@
 #!/bin/bash
 
-# Maximum allowed SSH sessions
-MAX_SESSIONS=6
+# Maximum number of SSH sessions.
+MAX_SESSIONS=10
 
-# Count the current number of SSH child processes
-CURRENT_SESSIONS=$(ps aux | grep sshd: | grep -v grep | wc -l)
+# Counting only unique SSH connections, not sessions.
+# This counts the number of unique IP addresses connected via SSH.
+CURRENT_SESSIONS=$(ss -tnp | grep sshd | grep -Po '(?<=src=)[\d.]+:\d+' | sort -u | wc -l)
 
 # Check if the current number of sessions is less than the maximum
-if [ "$CURRENT_SESSIONS" -lt "$MAX_SESSIONS" ] || [ -n "$SSH_ORIGINAL_COMMAND" ]; then
-    # If below the limit, or if this is a non-interactive session, proceed
+if [ "$CURRENT_SESSIONS" -lt "$MAX_SESSIONS" ]; then
+    # Allow the session to proceed
     if [ -n "$SSH_ORIGINAL_COMMAND" ]; then
-        exec "$SSH_ORIGINAL_COMMAND"
+        exec $SSH_ORIGINAL_COMMAND
     else
-        exec "$SHELL"
+        exec $SHELL
     fi
 else
-    # If the limit is reached, deny the session and exit
-    echo "Maximum number of SSH sessions ($MAX_SESSIONS) reached. Try again later."
+    # Deny the session
+    echo "Maximum number of SSH sessions reached."
     exit 1
 fi
